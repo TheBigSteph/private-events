@@ -16,8 +16,7 @@ class EventsController < ApplicationController
       @creator_event = @event.creator
       @attendances = @event.attendees
       @invitation =  Attendance.new
-      @not_invated = User.where.not(id: @event.attendees)
-
+      @not_invated = User.where.not(id: @event.attendees).map{ |u| [ u.name, u.id ] }
     end
 
     def create
@@ -31,7 +30,7 @@ class EventsController < ApplicationController
         end
     end
 
-  
+
     private
 
     def events_params
@@ -43,6 +42,6 @@ class EventsController < ApplicationController
           flash[:danger] = "Please Log in"
           redirect_to login_url
         end
-      end
+    end
 
 end

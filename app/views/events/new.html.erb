@@ -1,23 +1,26 @@
-<h1>Create New Event</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for @event do |f| %>
+<div class="container-fluid">
 
-      <%= f.label :title %>
-      <%= f.text_field :titre, class: 'form-control' %>
-      
-      <%= f.label :content %>
-      <%= f.text_area :content, class: 'form-control' %>
-      
-      <%= f.label :location %>
-      <%= f.text_field :location, class: 'form-control' %>
-      
-      <%= f.label :event_date %>
-      <%= f.date_field :event_date, class: 'form-control' %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h3>Create New Event</h3>
+      <%= form_for @event do |f| %>
 
-      <%= f.submit "Sign In", class: "btn btn-primary" %>
-    <% end %>
+        <%= f.label :title %>
+        <%= f.text_field :titre, class: 'form-control' %>
 
+        <%= f.label :content %>
+        <%= f.text_area :content, class: 'form-control' %>
+
+        <%= f.label :location %>
+        <%= f.text_field :location, class: 'form-control' %>
+
+        <%= f.label :event_date %>
+        <%= f.date_field :event_date, class: 'form-control' %>
+        <br>
+        <%= f.submit "Sign In", class: "btn btn-primary" %>
+      <% end %>
+
+    </div>
   </div>
 </div>
