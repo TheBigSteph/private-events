@@ -7,7 +7,7 @@
     User Event
   </a>
   <% @events_user.each do |event| %>
-    <%= link_to event.titre, event, class: "list-group-item list-group-item-action" %>
+    <%= link_to event.title, event, class: "list-group-item list-group-item-action" %>
   <% end %>
 </div>
 
@@ -16,7 +16,7 @@
     Previous Events
   </a>
   <% @prev_events.each do |event| %>
-     <%= link_to event.titre, event, class: "list-group-item list-group-item-action" %>
+     <%= link_to event.title, event, class: "list-group-item list-group-item-action" %>
   <% end %>
 </div>
 
@@ -25,7 +25,7 @@
     upcoming Events
   </a>
   <% @upcoming_events.each do |event| %>
-    <%= link_to event.titre, event, class: "list-group-item list-group-item-action" %>
+    <%= link_to event.title, event, class: "list-group-item list-group-item-action" %>
   <% end %>
 </div>
 
