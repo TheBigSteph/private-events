@@ -31,6 +31,16 @@ class EventsController < ApplicationController
         end
     end
 
+    def destroy 
+        @event = Event.find(params[:id])
+        if @event.destroy
+          flash[:alert] = "Event Deleted"
+          redirect_to root_path 
+        else
+          redirect_to @event
+        end
+      end
+
 
     private
 

@@ -6,7 +6,7 @@ class Event < ApplicationRecord
 
     has_many :attendances, foreign_key: :attended_event_id
 
-    has_many :attendees, through: :attendances, source: :attendee
+    has_many :attendees, through: :attendances
 
     def self.not_invited(attendees)
         User.where.not(id: attendees)
