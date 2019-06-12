@@ -16,7 +16,9 @@ class EventsController < ApplicationController
       @creator_event = @event.creator
       @attendances = @event.attendees
       @invitation =  Attendance.new
-      @not_invited = User.where.not(id: @event.attendees).map { |u| [ u.name, u.id ] }
+      # @not_invited = User.where.not(id: @event.attendees).map { |u| [ u.name, u.id ] }
+      @not_invited = Event.not_invited(@event.attendees).map { |u| [ u.name, u.id ] }
+      @count_invited = Event.not_invited(@event.attendees).count
 
     end
 

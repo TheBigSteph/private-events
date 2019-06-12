@@ -17,13 +17,17 @@
     <% end %>
 
     <%  if current_user == @creator_event%>
-    <hr class="my-4">
-    <h3><i class="fas fa-share-alt-square"></i> invite</h3>
-    <%= form_for(@invitation, url: attendances_path) do |f| %>
-    <%= f.label :attendee_id %>
-    <%= f.select(:attendee_id, options_for_select(@not_invited)) %>
-    <%= f.hidden_field :attended_event_id, value: params[:id] %>
-    <%= f.submit "Invite to Event" %>
+      <% if @count_invited > 0 %>
+      <hr class="my-4">
+      <h3><i class="fas fa-share-alt-square"></i> invite</h3>
+          <%= form_for(@invitation, url: attendances_path) do |f| %>
+          <%= f.label :attendee_id %>
+          <%= f.select(:attendee_id, options_for_select(@not_invited)) %>
+          <%= f.hidden_field :attended_event_id, value: params[:id] %>
+          <%= f.submit "Invite to Event" %>
+          <%  end  %>
+      <% else  %>
+        <p class="alert alert-primary" role="alert"> All the users are invited!</p>
     <% end  %>
     <hr class="my-4">
     <%= link_to "Delete Event", @event, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger" %>

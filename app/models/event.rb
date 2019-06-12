@@ -5,5 +5,9 @@ class Event < ApplicationRecord
 
     has_many :attendees, through: :attendances, source: :attendee
 
+    def self.not_invited(attendees)
+        User.where.not(id: attendees)
+    end
+    
 
 end
