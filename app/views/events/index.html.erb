@@ -1,21 +1,15 @@
-
-
 <div class="container-fluid">
   <div class="list-group">
     <a class="list-group-item list-group-item-action active">
       Upcoming Events
     </a>
-    <% @upcoming.each do |event| %>
-      <%= link_to event.titre, event, class: "list-group-item list-group-item-action" %>
-    <% end %>
+    <%= render partial: "upcoming_event", collection: @upcoming %>
   </div>
 
   <div class="list-group">
     <a class="list-group-item list-group-item-action active">
       Past Events
     </a>
-    <% @past_events.each do |event| %>
-       <%= link_to event.titre, event, class: "list-group-item list-group-item-action" %>
-    <% end %>
+    <%= render partial: "past_event", collection: @past_events %>
   </div>
 </div>

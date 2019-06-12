@@ -5,11 +5,5 @@ class Event < ApplicationRecord
 
     has_many :attendees, through: :attendances, source: :attendee
 
-    def past
-      self.where("event_date < ?", Time.now.strftime("%Y-%m-%d") ).order(event_date: :desc)
-    end
 
-    def coming
-      self.where("event_date > ?", Time.now.strftime("%Y-%m-%d") ).order(event_date: :asc)
-    end
 end
