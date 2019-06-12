@@ -16,7 +16,8 @@ class EventsController < ApplicationController
       @creator_event = @event.creator
       @attendances = @event.attendees
       @invitation =  Attendance.new
-      @not_invated = User.where.not(id: @event.attendees).map{ |u| [ u.name, u.id ] }
+      @not_invited = Event.not_invited(@event.attendees).map { |u| [ u.name, u.id ] }
+      @count_invited = Event.not_invited(@event.attendees).count
     end
 
     def create
@@ -34,7 +35,7 @@ class EventsController < ApplicationController
     private
 
     def events_params
-        params.require(:event).permit(:titre, :content, :location, :event_date)
+        params.require(:event).permit(:title, :content, :location, :event_date)
     end
 
     def logged_in_user
