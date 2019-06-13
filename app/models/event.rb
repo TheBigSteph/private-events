@@ -1,4 +1,7 @@
 class Event < ApplicationRecord
+    scope :upcoming, -> { where("event_date > ?", Time.now.strftime("%Y-%m-%d") ).order(event_date: :asc) } 
+    scope :past, -> { where("event_date < ?", Time.now.strftime("%Y-%m-%d") ).order(event_date: :desc) } 
+
     belongs_to :creator, class_name: "User"
 
     has_many :attendances, foreign_key: :attended_event_id
@@ -9,12 +12,5 @@ class Event < ApplicationRecord
         User.where.not(id: attendees)
     end
     
-    def upcoming
-        self.attended_events.where("event_date > ?", Time.now.strftime("%Y-%m-%d") ).order(event_date: :asc)
-      end
-    
-      def past
-        self.attended_events.where("event_date < ?", Time.now.strftime("%Y-%m-%d") ).order(event_date: :desc)
-      end
-
+  
 end
