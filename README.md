@@ -1,3 +1,7 @@
-# Private Events
+Microverse Ruby on Rails Project Associations. 
 
-This is a Private-Events Project a site similar to a private Eventbrite which allows users to create events and then manage user signups
+Author: <a href="https://github.com/danmontielh">Daniel Montiel</a> / <a href="https://github.com/TheBigSteph">Stephane Nzali</a>
+
+Preview: 
+https://limitless-crag-86867.herokuapp.com/
+
